@@ -1,0 +1,4 @@
+../Core/Src/deserialize.c:5:5:deserializeLocalStateB1	32	static
+../Core/Src/deserialize.c:23:5:deserializeLocalStateB2	32	static
+../Core/Src/deserialize.c:41:5:deserializeGlobalState	32	static
+../Core/Src/deserialize.c:57:5:deserializeDecision	32	static

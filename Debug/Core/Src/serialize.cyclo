@@ -1,0 +1,4 @@
+../Core/Src/serialize.c:5:8:serializeLocalStateB1	1
+../Core/Src/serialize.c:20:8:serializeLocalStateB2	1
+../Core/Src/serialize.c:35:8:serializeGlobalState	1
+../Core/Src/serialize.c:44:8:serializeDecision	1

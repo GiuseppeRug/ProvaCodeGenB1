@@ -1,0 +1,3 @@
+../Core/Src/stubFunctions.c:9:9:CheckRTR	4	static
+../Core/Src/stubFunctions.c:19:6:UartTransmitIT	40	static
+../Core/Src/stubFunctions.c:27:6:UartReceiveIT	16	static

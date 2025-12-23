@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "Board1.h"
+#include "Board1_types.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +45,15 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+/* Block states (default storage) */
+extern DW_Board1_T Board1_DW;
+
+/* External inputs (root inport signals with default storage) */
+extern ExtU_Board1_T Board1_U;
+
+/* External outputs (root outports fed by signals with default storage) */
+extern ExtY_Board1_T Board1_Y;
 
 /* USER CODE END PV */
 
@@ -91,6 +101,22 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  // Coming from Sensors
+  Board1_U.speed = (BUS_Speed) {20.0f, 20.0f, 30.0f, 20.0f};
+  Board1_U.temperature = (Temperature) 40.0f;
+  Board1_U.batteryLevel = (BatteryLevel) 13.0f;
+
+  // Coming from ModelAction
+  Board1_U.roverAction = RA_IDLE;
+  Board1_U.safeAction = RA_IDLE;
+  Board1_U.setPoint = (BUS_SetPoint) {0.0f, 0.0f};
+
+  // Continua
+  Board1_U.In1 = 0;
+  // Receive che dovrebbe essere gestito dalla receive it
+  Board1_DW.received = 0;
+
+  Board1_initialize();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,6 +126,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	 Board1_step();
   }
   /* USER CODE END 3 */
 }
