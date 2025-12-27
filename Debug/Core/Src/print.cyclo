@@ -1,7 +1,8 @@
 ../Core/Src/print.c:7:6:uartPrint	1
 ../Core/Src/print.c:11:6:printMsg	1
-../Core/Src/print.c:20:6:printLocalStateB1	1
-../Core/Src/print.c:37:6:printLocalStateB2	1
-../Core/Src/print.c:61:6:printGlobalState	1
-../Core/Src/print.c:75:6:printDecision	1
-../Core/Src/print.c:95:6:UART_PrintFrameSizes	1
+../Core/Src/print.c:16:6:clearScreen	1
+../Core/Src/print.c:24:6:printLocalStateB1	1
+../Core/Src/print.c:41:6:printLocalStateB2	1
+../Core/Src/print.c:65:6:printGlobalState	1
+../Core/Src/print.c:79:6:printDecision	1
+../Core/Src/print.c:99:6:UART_PrintFrameSizes	1

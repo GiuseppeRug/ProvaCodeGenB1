@@ -13,6 +13,10 @@ void printMsg(const char *pData) {
 	HAL_MAX_DELAY);
 }
 
+void clearScreen(){
+	  printMsg(CLRSCR);
+}
+
 /* -------------------------------------------------- */
 /* Stampa stati locali                                */
 /* -------------------------------------------------- */

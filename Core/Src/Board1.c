@@ -280,6 +280,7 @@ void Board1_step(void)
           Board1_DW.exit_port_index_LS_Receive = 0U;
           deserializeLocalStateB2(&Board1_DW.rx_buffer[0], Board1_DW.rxPayload,
             (BUS_LocalStateB2 *)&Board1_DW.board2LocalState);
+
           Board1_DW.is_ExchangeLocalState = Board1_IN_NO_ACTIVE_CHILD;
           Board1_DW.exit_port_index_ExchangeLocalSt = 2U;
         }

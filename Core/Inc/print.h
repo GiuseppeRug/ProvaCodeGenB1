@@ -9,6 +9,9 @@
 #include "usart.h"
 extern UART_HandleTypeDef huart2;
 
+#define CLRSCR "\033[2J\033[H"
+void clearScreen();
+
 /* Funzioni di stampa UART */
 void uartPrint(const char *msg);
 void printMsg(const char *pData);

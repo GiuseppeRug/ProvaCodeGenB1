@@ -1,4 +1,4 @@
 ../Core/Src/Board1.c:71:24:Board1_computeUserAction	5
 ../Core/Src/Board1.c:89:6:Board1_step	37
-../Core/Src/Board1.c:350:6:Board1_initialize	1
-../Core/Src/Board1.c:356:6:Board1_terminate	1
+../Core/Src/Board1.c:351:6:Board1_initialize	1
+../Core/Src/Board1.c:357:6:Board1_terminate	1

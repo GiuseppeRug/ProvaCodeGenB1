@@ -17,7 +17,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <Board_types.h>
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
@@ -25,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Board1.h"
+#include "print.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,16 +100,18 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  clearScreen();
+  printMsg("Begin B1\r\n");
+  HAL_GPIO_WritePin(RTR_OUT_GPIO_Port, RTR_OUT_Pin,GPIO_PIN_RESET);
   // Coming from Sensors
-  Board1_U.speed = (BUS_Speed) {20.0f, 20.0f, 30.0f, 20.0f};
-  Board1_U.temperature = (Temperature) 40.0f;
-  Board1_U.batteryLevel = (BatteryLevel) 13.0f;
+  Board1_U.speed = (BUS_Speed) {32.3f, 32.3f, 32.3f, 32.3f};
+  Board1_U.temperature = (Temperature) 32.3f;
+  Board1_U.batteryLevel = (BatteryLevel) 32.3f;
 
   // Coming from ModelAction
   Board1_U.roverAction = RA_IDLE;
   Board1_U.safeAction = RA_IDLE;
-  Board1_U.setPoint = (BUS_SetPoint) {0.0f, 0.0f};
+  Board1_U.setPoint = (BUS_SetPoint) {32.3f, 32.3f};
 
   // Continua
   Board1_U.In1 = 0;

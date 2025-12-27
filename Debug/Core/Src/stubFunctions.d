@@ -28,7 +28,9 @@ Core/Src/stubFunctions.o: ../Core/Src/stubFunctions.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
+ ../Core/Inc/Board1.h ../Core/Inc/serialize.h ../Core/Inc/deserialize.h \
+ ../Core/Inc/stubFunctions.h
 ../Core/Inc/Board_types.h:
 ../Core/Inc/rtwtypes.h:
 ../Core/Inc/stubFunctions.h:
@@ -64,3 +66,7 @@ Core/Src/stubFunctions.o: ../Core/Src/stubFunctions.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
+../Core/Inc/Board1.h:
+../Core/Inc/serialize.h:
+../Core/Inc/deserialize.h:
+../Core/Inc/stubFunctions.h:
