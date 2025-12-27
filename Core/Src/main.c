@@ -24,10 +24,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Board1.h"
-
 #include "sensors.h"
 #include "decision.h"
-
 #include "print.h"
 /* USER CODE END Includes */
 
