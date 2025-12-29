@@ -1,5 +1,5 @@
 ../Core/Src/board1/Board1.c:73:22:Board1_actuatorSelection	2
 ../Core/Src/board1/Board1.c:86:24:Board1_computeUserAction	5
 ../Core/Src/board1/Board1.c:104:6:Board1_step	37
-../Core/Src/board1/Board1.c:384:6:Board1_initialize	1
-../Core/Src/board1/Board1.c:400:6:Board1_terminate	1
+../Core/Src/board1/Board1.c:387:6:Board1_initialize	1
+../Core/Src/board1/Board1.c:403:6:Board1_terminate	1

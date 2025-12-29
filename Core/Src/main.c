@@ -1,4 +1,5 @@
 /* USER CODE BEGIN Header */
+/* PROVA COD GEN B1 */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -36,7 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define Board1_IN_Execution            ((uint8_T)3U)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,6 +57,8 @@ extern ExtU_Board1_T Board1_U;
 
 /* External outputs (root outports fed by signals with default storage) */
 extern ExtY_Board1_T Board1_Y;
+
+extern B_Board1_T Board1_B;
 
 /* USER CODE END PV */
 
@@ -103,10 +106,10 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   clearScreen();
-  printMsg("Begin B1\r\n");
-  UART_PrintFrameSizes();
+  printMsg("PROVA COD GEN B1\r\n");
 
-  HAL_GPIO_WritePin(RTR_OUT_GPIO_Port, RTR_OUT_Pin,GPIO_PIN_RESET);
+  uint8_t flagStampa = 1;
+
   // Coming from Sensors
   Board1_U.speed = (BUS_Speed) {32.3f, 32.3f, 32.3f, 32.3f};
   Board1_U.temperature = (Temperature) 32.3f;
@@ -119,6 +122,7 @@ int main(void)
 
   // Continua
   Board1_U.continua = 0;
+
   // Receive che dovrebbe essere gestito dalla receive it
   Board1_DW.received = 0;
 
@@ -132,8 +136,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	 Board1_step();
-  }
+
+		Board1_step();
+
+		if (flagStampa == 1) {
+			if (Board1_DW.is_ExchangeDecision == Board1_IN_Execution) {
+				printGlobalState(&Board1_B.board1GlobalState);
+				printDecision(&Board1_DW.board1Decision);
+				flagStampa = 0;
+			}
+		}
+	}
   /* USER CODE END 3 */
 }
 
@@ -178,7 +191,38 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart) {
+	if (huart->Instance == LPUART1) {
 
+		uint32_t err = huart->ErrorCode;
+
+		printMsg("UART ERROR: ");
+
+		if (err & HAL_UART_ERROR_ORE) {
+			printMsg("ORE ");
+		}
+		if (err & HAL_UART_ERROR_FE) {
+			printMsg("FE ");
+		}
+		if (err & HAL_UART_ERROR_NE) {
+			printMsg("NE ");
+		}
+		if (err & HAL_UART_ERROR_PE) {
+			printMsg("PE ");
+		}
+
+		printMsg("\r\n");
+
+		// --- recovery minimo indispensabile ---
+		__HAL_UART_CLEAR_OREFLAG(huart);
+		__HAL_UART_CLEAR_FEFLAG(huart);
+		__HAL_UART_CLEAR_NEFLAG(huart);
+		__HAL_UART_CLEAR_PEFLAG(huart);
+
+		HAL_UART_AbortReceive_IT(huart);
+
+	}
+}
 /* USER CODE END 4 */
 
 /**

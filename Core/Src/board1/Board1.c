@@ -221,6 +221,7 @@ void Board1_step(void)
           Board1_DW.is_ExchangeDecision = Board1_IN_D_Receive;
 
           /* Pronto a ricevere */
+          Board1_DW.received = 0;
           UartReceiveIT(&Board1_DW.rx_buffer[0], Board1_DW.rxPayload);
         }
         break;
@@ -286,6 +287,7 @@ void Board1_step(void)
           Board1_DW.is_ExchangeGlobalState = Board1_IN_GL_Receive;
 
           /* Pronto a ricevere */
+          Board1_DW.received = 0;
           UartReceiveIT(&Board1_DW.rx_buffer[0], Board1_DW.rxPayload);
         }
         break;
@@ -332,6 +334,7 @@ void Board1_step(void)
           Board1_DW.is_ExchangeLocalState = Board1_IN_LS_Receive;
 
           /* Pronto a ricevere */
+          Board1_DW.received = 0;
           UartReceiveIT(&Board1_DW.rx_buffer[0], Board1_DW.rxPayload);
         }
       }
